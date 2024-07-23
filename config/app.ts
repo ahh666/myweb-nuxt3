@@ -2,7 +2,7 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2024-04-26 16:47:58
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-07-22 17:37:59
+ * @LastEditTime : 2024-07-23 11:01:47
  * @FilePath     : \myweb-nuxt3\config\app.ts
  * @Description  : Description
  */
@@ -20,7 +20,8 @@ export const app = {
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
     ],
     script: [
-      { src: `/js/gt4.js` },
+      { src: 'https://static.geetest.com/v4/gt4.js' },
+      { src: '/js/typekit.js' },
     ],
     meta: [
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
