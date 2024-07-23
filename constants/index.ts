@@ -2,16 +2,18 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2024-04-12 16:54:05
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-05-16 19:11:27
+ * @LastEditTime : 2024-07-23 17:41:16
  * @FilePath     : \myweb-nuxt3\constants\index.ts
  * @Description  : Description
  */
 import type { ProjectProps } from '../types/project'
+import type { Contact } from '~/types/contact'
 
 export const appName = 'Archer 艾欢欢 | Website'
-export const appDescription = '艾欢欢的网站'
-export const keywords = '艾欢欢的网站,aihuanhuan website,archer website,aihuanhuan,archer'
+export const appDescription = '艾欢欢的个人网站'
+export const keywords = 'aihuanhuan,艾欢欢,Archer,前端艾欢欢,前端工程师,aihuanhuan website,archer website,个人网站'
 
+// 个人项目
 export const projects: Array<ProjectProps> = [
   {
     // 项目1 恒生light云
@@ -107,5 +109,29 @@ export const projects: Array<ProjectProps> = [
         theme: 'blue',
       },
     ],
+  },
+]
+
+// 个人联系方式
+export const contact: Array<Contact> = [
+  {
+    type: 'Github',
+    icon: 'iconGitHub',
+    url: 'https://github.com/ahh666',
+  },
+  {
+    type: 'CSDN博客',
+    icon: 'iconcsdn',
+    url: 'https://blog.csdn.net/aihuanhuan110',
+  },
+  {
+    type: '微博',
+    icon: 'iconweibo',
+    url: 'https://weibo.com/u/3812115557',
+  },
+  {
+    type: '个人简历',
+    icon: 'iconjianli1',
+    url: 'https://ahh.yananart.cn/ahh/resume',
   },
 ]

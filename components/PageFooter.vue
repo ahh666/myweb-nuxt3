@@ -2,11 +2,13 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2024-05-15 16:34:17
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-07-23 11:46:00
+ * @LastEditTime : 2024-07-23 16:21:01
  * @FilePath     : \myweb-nuxt3\components\PageFooter.vue
  * @Description  : Description
 -->
 <script setup>
+import { contact } from '~/constants'
+
 const captchaObj = ref(null)
 const showWechat = ref(false)
 const showEmail = ref(false)
@@ -43,31 +45,43 @@ function showPersonalInfo(type) {
   currentShowInfo.value = type
   type && captchaObj.value && captchaObj.value.showBox()
 }
+const openUrl = url => window.open(url)
 onMounted(() => {
   initCaptcha()
 })
 </script>
 
 <template>
-  <div class="page-footer">
+  <footer class="page-footer">
     <div class="about">
       <h1 class="title">
         关于我
       </h1>
       <div class="content">
-        你好，我叫右可，是一名设计师，从事视觉、界面、动效等设计工作。<br>
+        你好，我叫艾欢欢，是一名前端工程师，负责过前端架构设计、技术选型、基建开发、网站重构等重要工作。
+        <br><br>
 
-        因为对画画感兴趣，我小学时周末通常是在绘画兴趣班度过的，随后高中开始系统的学习美术，大学于湖北美术学院动画系就读。
-        可能是在学习环境中接触「实验性」和「纯艺」比较多，我更向往贴近生活的表现形式，希望利用所学知识来解决实际问题。
-        <br>
-        我希望自己能一直热爱设计并敢于面对更多挑战。努力改变能改变的，平静接受不能改变的。
+        大学就读于湖北理工，计算机科学与技术专业。喜欢社交，学习能力、动手能力较强。
+        大学期间获得国家奖学金、中国大学生计算机设计大赛国家奖（有奖状），曾任职学生会主席。
+        <br><br>
+
+        熟悉 Vue2、Vue3、React、Node 等前端框架，对设计和拍照构图也有一些兴趣。
+        我始终相信业务推动技术升级，而技术推动业务发展。希望能用所学知识解决实际问题。
+        <br><br>
+
+        我希望自己能一直热爱生活并敢于面对更多挑战。努力改变能改变的，平静接受不能改变的。
       </div>
     </div>
-    <div class="contact">
+    <div class="contact" mt80px>
       <h1 class="title">
         联系我
       </h1>
       <div class="content">
+        <div class="contact-list">
+          <div v-for="c in contact" :key="c.type" class="contact-item">
+            <AiIcon :name="c.icon" text-22px :title="c.type" @click="openUrl(c.url)" />
+          </div>
+        </div>
         <div class="email">
           <AiIcon name="iconyouxiang" text-14px />
           <span @click="showPersonalInfo('email')">{{ showEmail ? 'ahh666@qq.com' : '查看我的邮箱' }}</span>
@@ -89,76 +103,105 @@ onMounted(() => {
         Designed & coded by Aihuanhuan. Site is hosted on aliyun and service process manage by pm2.
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <style lang="less">
 .page-footer {
   margin-top: 150px;
-  margin-bottom: 120px;
+
   .contact,
   .about {
     display: flex;
+
     align-items: flex-start;
     justify-content: center;
-  }
-  .title {
-    width: 200px;
-    font-size: 30px;
-    font-weight: 700;
-    color: #fff;
-  }
-  .content {
-    width: 720px;
-    font-style: normal;
-    font-size: 14px;
-    font-weight: 400;
-    color: hsla(0, 0%, 100%, 0.6);
-    line-height: 20px;
+
+    .title {
+      width: 200px;
+
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 34px;
+
+      color: #fff;
+    }
+
+    .content {
+      width: 720px;
+
+      font-size: 14px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 20px;
+
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .contact-list {
+      display: flex;
+
+      margin-bottom: 10px;
+
+      .contact-item {
+        margin-right: 20px;
+
+        cursor: pointer;
+      }
+    }
   }
 
   .email,
   .wechat {
-    margin-right: 20px;
     display: inline-block;
-    background-color: #40454b;
+
+    position: relative;
+
+    margin-right: 20px;
     border-radius: 8px;
     padding: 12px 16px;
-    position: relative;
-    transition: all 0.3s ease;
-    cursor: pointer;
+
     font-size: 13px;
+
     color: rgba(255, 255, 255, 0.6);
+    background-color: #40454b;
+
+    transition: all 0.3s ease;
+
+    cursor: pointer;
+
     &:hover {
       filter: brightness(1.1);
     }
+
     i {
+      display: inline-block;
+
+      margin-right: 8px;
       width: 16px;
       height: 16px;
-      display: inline-block;
-      margin-right: 8px;
+
       transition: all 0.3s ease;
     }
   }
 
   .globalFooter {
-    max-width: 1200px;
-    width: calc(100% - 32px);
-    padding: 24px 0 40px 0;
-    margin: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
     display: flex;
-    justify-content: space-between;
 
-    span {
-      margin-right: 16px;
-      color: rgba(255, 255, 255, 0.6);
-    }
+    margin: 16px auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px 0 40px 0;
+    width: calc(100% - 32px);
+    max-width: 1200px;
+
+    color: rgba(255, 255, 255, 0.6);
+
+    justify-content: space-between;
 
     .globalFooter_links {
       a {
         margin-right: 16px;
+
         transition: all 0.3s ease;
 
         &:hover {
@@ -166,23 +209,26 @@ onMounted(() => {
         }
       }
     }
+
     .globalFooter_copyright {
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.3);
       letter-spacing: 0.5px;
+
+      color: rgba(255, 255, 255, 0.3);
     }
   }
 
   @media screen and (max-width: 600px) {
     .globalFooter {
+      padding: 24px 0 40px 0;
       width: 100%;
-      padding: 24px 0px 40px 0px;
 
-      flex-direction: column;
       align-items: flex-start;
+      flex-direction: column;
 
       .globalFooter_links {
         display: flex;
+
         flex-direction: column;
 
         a {
@@ -196,10 +242,11 @@ onMounted(() => {
       }
 
       .globalFooter_copyright {
-        max-width: 100%;
-        text-align: left;
-        line-height: 18px;
         margin-top: 16px;
+        max-width: 100%;
+
+        line-height: 18px;
+        text-align: left;
       }
     }
   }

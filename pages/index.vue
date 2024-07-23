@@ -2,7 +2,7 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2023-06-19 14:41:52
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-07-22 15:37:20
+ * @LastEditTime : 2024-07-23 15:16:14
  * @FilePath     : \myweb-nuxt3\pages\index.vue
  * @Description  : Description
 -->
@@ -76,9 +76,7 @@ onMounted(() => {
       <!-- 项目 -->
       <ProjectCard v-for="p in projects" :key="p.title" :project="p" />
     </main>
-    <footer>
-      <PageFooter />
-    </footer>
+    <PageFooter />
   </div>
 </template>
 

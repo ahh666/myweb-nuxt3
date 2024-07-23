@@ -14,7 +14,7 @@ export const app = {
     title: appName,
     viewport: 'width=device-width,initial-scale=1',
     link: [
-      { rel: 'stylesheet', href: '//at.alicdn.com/t/c/font_1916842_t0i4gezae7e.css' },
+      { rel: 'stylesheet', href: '//at.alicdn.com/t/c/font_1916842_itnm6yp6fos.css' },
       { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
       { rel: 'icon', type: 'image/svg+xml', href: '/nuxt.svg' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
