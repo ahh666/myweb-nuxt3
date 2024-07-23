@@ -2,7 +2,7 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2023-06-19 14:41:52
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-07-23 15:16:14
+ * @LastEditTime : 2024-07-23 18:05:13
  * @FilePath     : \myweb-nuxt3\pages\index.vue
  * @Description  : Description
 -->
@@ -71,7 +71,7 @@ onMounted(() => {
             <AiIcon class="btn-more-icon" name="iconfenxiang" />
           </AiButton>
         </div>
-        <div class="img-area" style="background-image: url(/assets/img/banner_1_bg.png);" />
+        <div class="img-area" style="background-image: url(/assets/img/banner-bg-personal.png);" />
       </div>
       <!-- 项目 -->
       <ProjectCard v-for="p in projects" :key="p.title" :project="p" />

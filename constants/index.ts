@@ -2,7 +2,7 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2024-04-12 16:54:05
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-07-23 17:41:16
+ * @LastEditTime : 2024-07-23 18:08:04
  * @FilePath     : \myweb-nuxt3\constants\index.ts
  * @Description  : Description
  */
@@ -23,7 +23,7 @@ export const projects: Array<ProjectProps> = [
       '负责将 PC 端项目独立出来单独维护，用以将 Light 云作为品牌独立出来。',
       '自定义表单模板组件设计和开发。',
     ],
-    bg: '/assets/img/banner_2_bg.png',
+    bg: '/assets/img/banner-bg-lightyun.png',
     btnGroup: [
       {
         text: '前往网站',
@@ -47,7 +47,7 @@ export const projects: Array<ProjectProps> = [
       '主要负责人，技术选型、规范定制、框架搭建、用户中心模块处理，头部组件封装导出和接入方对接试用。',
       '使用微前端框架，并根据对接情况更新版本发布日志。',
     ],
-    bg: '/assets/img/banner_3_bg.png',
+    bg: '/assets/img/banner-bg-lightyun1.png',
     btnGroupStyle: 'bottom: 60px',
     btnGroup: [
       {
@@ -67,7 +67,7 @@ export const projects: Array<ProjectProps> = [
       '折线图、饼图、进度条的开发和后期抽离组件化。',
       '主要技术栈：Vue2.x + TypeScript + TSX + React + Rollup。React 和 Rollup 主要是用来单独写富文本组件并打包。。',
     ],
-    bg: '/assets/img/banner_5_bg.png',
+    bg: '/assets/img/banner-bg-wanhe.png',
     btnGroupStyle: 'bottom: 60px',
     btnGroup: [
       {
@@ -93,7 +93,7 @@ export const projects: Array<ProjectProps> = [
       '负责个税记忆专题开发 —— 用户个税操作年终总结。',
       '前端规范制定，推动代码评审的进行和前端 mock。',
     ],
-    bg: '/assets/img/banner_4_bg.png',
+    bg: '/assets/img/banner-bg-geshui.png',
     btnGroupStyle: 'bottom: 60px',
     btnGroup: [
       {

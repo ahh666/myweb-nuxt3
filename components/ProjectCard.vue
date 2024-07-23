@@ -2,7 +2,7 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2024-05-15 17:52:01
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-05-16 18:47:26
+ * @LastEditTime : 2024-07-23 17:52:03
  * @FilePath     : \myweb-nuxt3\components\ProjectCard.vue
  * @Description  : Description
 -->
@@ -81,8 +81,6 @@ const { title, desc, btnGroup, bg, btnGroupStyle } = props.project
 }
 
 .project-card {
-  color: rgba(0, 0, 0, 0.8);
-  background: #f5f6f8;
   overflow: hidden;
 
   position: relative;
@@ -93,6 +91,9 @@ const { title, desc, btnGroup, bg, btnGroupStyle } = props.project
   width: 100%;
   max-width: 1200px;
   height: 420px;
+
+  color: rgba(0, 0, 0, 0.8);
+  background: #f5f6f8;
 
   .img-area {
     position: absolute;
@@ -158,6 +159,8 @@ const { title, desc, btnGroup, bg, btnGroupStyle } = props.project
       color: rgba(0, 0, 0, 0.8);
 
       li {
+        list-style-type: disc;
+
         margin-bottom: 6px;
 
         font-size: 16px;
