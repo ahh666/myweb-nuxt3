@@ -2,14 +2,15 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2024-05-15 16:34:17
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-07-22 17:58:45
+ * @LastEditTime : 2024-07-23 11:46:00
  * @FilePath     : \myweb-nuxt3\components\PageFooter.vue
  * @Description  : Description
 -->
 <script setup>
 const captchaObj = ref(null)
-const validPass = ref(false)
-const currentInfo = ref('')
+const showWechat = ref(false)
+const showEmail = ref(false)
+const currentShowInfo = ref('')
 
 // 初始化验证码
 function initCaptcha() {
@@ -25,14 +26,21 @@ function initCaptcha() {
           captchaObj.value = cap
         })
         .onSuccess(() => {
-          validPass.value = true
+          if (!showEmail.value)
+            showEmail.value = currentShowInfo.value === 'email'
+
+          if (!showWechat.value)
+            showWechat.value = currentShowInfo.value === 'wechat'
         })
     },
   )
 }
 // 按钮点击获取信息
 function showPersonalInfo(type) {
-  currentInfo.value = type
+  if ((showWechat.value && type === 'wechat') || (showEmail.value && type === 'email'))
+    return
+
+  currentShowInfo.value = type
   type && captchaObj.value && captchaObj.value.showBox()
 }
 onMounted(() => {
@@ -41,12 +49,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="footer">
+  <div class="page-footer">
     <div class="about">
       <h1 class="title">
         关于我
       </h1>
-      <div class="desc">
+      <div class="content">
         你好，我叫右可，是一名设计师，从事视觉、界面、动效等设计工作。<br>
 
         因为对画画感兴趣，我小学时周末通常是在绘画兴趣班度过的，随后高中开始系统的学习美术，大学于湖北美术学院动画系就读。
@@ -59,8 +67,15 @@ onMounted(() => {
       <h1 class="title">
         联系我
       </h1>
-      <div class="desc">
-        <span @click="showPersonalInfo">weixin</span>
+      <div class="content">
+        <div class="email">
+          <AiIcon name="iconyouxiang" text-14px />
+          <span @click="showPersonalInfo('email')">{{ showEmail ? 'ahh666@qq.com' : '查看我的邮箱' }}</span>
+        </div>
+        <div class="wechat">
+          <AiIcon name="iconsocial-wechat" text-14px />
+          <span @click="showPersonalInfo('wechat')">{{ showWechat ? 'ah2121' : '查看我的微信' }}</span>
+        </div>
       </div>
     </div>
     <div class="globalFooter">
@@ -78,7 +93,7 @@ onMounted(() => {
 </template>
 
 <style lang="less">
-.footer {
+.page-footer {
   margin-top: 150px;
   margin-bottom: 120px;
   .contact,
@@ -93,13 +108,37 @@ onMounted(() => {
     font-weight: 700;
     color: #fff;
   }
-  .desc {
+  .content {
     width: 720px;
     font-style: normal;
     font-size: 14px;
     font-weight: 400;
     color: hsla(0, 0%, 100%, 0.6);
     line-height: 20px;
+  }
+
+  .email,
+  .wechat {
+    margin-right: 20px;
+    display: inline-block;
+    background-color: #40454b;
+    border-radius: 8px;
+    padding: 12px 16px;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    &:hover {
+      filter: brightness(1.1);
+    }
+    i {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      margin-right: 8px;
+      transition: all 0.3s ease;
+    }
   }
 
   .globalFooter {
@@ -117,25 +156,20 @@ onMounted(() => {
       color: rgba(255, 255, 255, 0.6);
     }
 
-    &_links {
+    .globalFooter_links {
       a {
         margin-right: 16px;
         transition: all 0.3s ease;
 
         &:hover {
-          color: white;
+          color: #fff;
         }
-
-        /* &:last-child {
-        display: inline-block;
-        height: 16px;
-        padding-left: 10px;
-        border-left: 1px solid $font-color-white-3;
-      } */
       }
     }
-    &_copyright {
-      @include font(12px, rgba(255, 255, 255, 0.3), 400);
+    .globalFooter_copyright {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.5px;
     }
   }
 
