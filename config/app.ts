@@ -2,7 +2,7 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2024-04-26 16:47:58
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-07-23 11:01:47
+ * @LastEditTime : 2024-08-22 14:55:54
  * @FilePath     : \myweb-nuxt3\config\app.ts
  * @Description  : Description
  */
@@ -14,7 +14,7 @@ export const app = {
     title: appName,
     viewport: 'width=device-width,initial-scale=1',
     link: [
-      { rel: 'stylesheet', href: '//at.alicdn.com/t/c/font_1916842_itnm6yp6fos.css' },
+      { rel: 'stylesheet', href: '//at.alicdn.com/t/c/font_1916842_5ht2eiohg4y.css' },
       { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
       { rel: 'icon', type: 'image/svg+xml', href: '/nuxt.svg' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },

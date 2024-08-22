@@ -2,7 +2,7 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2024-04-12 16:54:05
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-07-23 18:08:04
+ * @LastEditTime : 2024-08-22 14:54:25
  * @FilePath     : \myweb-nuxt3\constants\index.ts
  * @Description  : Description
  */
@@ -131,7 +131,7 @@ export const contact: Array<Contact> = [
   },
   {
     type: '个人简历',
-    icon: 'iconjianli1',
+    icon: 'iconwodejianli',
     url: 'https://ahh.yananart.cn/ahh/resume',
   },
 ]

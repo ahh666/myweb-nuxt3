@@ -2,7 +2,7 @@
  * @Author       : Archer<ahh666@qq.com>
  * @Date         : 2023-06-19 14:41:52
  * @LastEditors  : Archer<ahh666@qq.com>
- * @LastEditTime : 2024-07-23 18:05:13
+ * @LastEditTime : 2024-08-22 15:33:53
  * @FilePath     : \myweb-nuxt3\pages\index.vue
  * @Description  : Description
 -->
@@ -23,6 +23,17 @@ const scrollHandler = throttle(() => {
 onMounted(() => {
   scrollHandler()
 })
+
+const projectRef = ref(null)
+const worksRef = ref(null)
+const aboutRef = ref(null)
+function scrollTo(el) {
+  homeRef.value.scrollTo({
+    top: el.offsetTop,
+    left: window.screenX,
+    behavior: 'smooth',
+  })
+}
 </script>
 
 <template>
@@ -31,9 +42,9 @@ onMounted(() => {
       <div class="head-nav-wrap" :class="{ 'head-nav-transition': isCover }">
         <div class="head-nav">
           <div class="head-nav-group">
-            <span class="head-nav-item">项目</span>
+            <span class="head-nav-item" @click="scrollTo(projectRef)">项目</span>
             <span class="head-nav-item">作品</span>
-            <span class="head-nav-item">关于我</span>
+            <span class="head-nav-item" @click="scrollTo(aboutRef)">关于我</span>
           </div>
           <AiIcon class="head-nav-git" name="iconGitHub" @click="goGithub" />
         </div>
@@ -74,9 +85,13 @@ onMounted(() => {
         <div class="img-area" style="background-image: url(/assets/img/banner-bg-personal.png);" />
       </div>
       <!-- 项目 -->
-      <ProjectCard v-for="p in projects" :key="p.title" :project="p" />
+      <div ref="projectRef">
+        <ProjectCard v-for="p in projects" :key="p.title" :project="p" />
+      </div>
     </main>
-    <PageFooter />
+    <div ref="aboutRef">
+      <PageFooter />
+    </div>
   </div>
 </template>
 
